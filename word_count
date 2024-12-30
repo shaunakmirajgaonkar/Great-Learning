@@ -1,0 +1,16 @@
+def word_counter(text):
+    # Split the text into words based on spaces
+    words = text.split()
+    # Count the words
+    word_count = len(words)
+    return word_count
+if __name__ == "__main__":
+    # Input text
+    user_input = input("Enter text: ")
+    # Get word count
+    count = word_counter(user_input)
+    print(f"Word count: {count}")
+
+Output-
+Enter text: paris is very beautiful
+Word count: 4
