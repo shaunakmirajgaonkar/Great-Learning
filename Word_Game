@@ -1,0 +1,48 @@
+def word_game():
+    print("Welcome to the Word Chain Game!")
+    print("Rules: Each word must start with the last letter of the previous word. No repeats allowed.")
+    
+    used_words = set()  # To track words that have been used
+    last_letter = None  # To store the last letter of the previous word
+    
+    while True:
+        # Prompt the player for input
+        player_word = input("Enter a word: ").strip().lower()
+        
+        # Check if the word is valid
+        if not player_word.isalpha():
+            print("Invalid input. Please enter a valid word.")
+            continue
+        
+        if player_word in used_words:
+            print(f"'{player_word}' has already been used. Game over!")
+            break
+        
+        if last_letter and player_word[0] != last_letter:
+            print(f"The word must start with '{last_letter}'. Game over!")
+            break
+        
+        # Add the word to the used words set and update the last letter
+        used_words.add(player_word)
+        last_letter = player_word[-1]
+        print(f"Good job! Next word must start with '{last_letter}'.")
+    
+    print("Game Over! Thanks for playing.")
+    print(f"Words used: {', '.join(used_words)}")
+
+# Start the game
+if __name__ == "__main__":
+    word_game()
+
+Output-
+Welcome to the Word Chain Game!
+Rules: Each word must start with the last letter of the previous word. No repeats allowed.
+Enter a word: success
+Good job! Next word must start with 's'.
+Enter a word: scenarios
+Good job! Next word must start with 's'.
+Enter a word: solitaire
+Good job! Next word must start with 'e'.
+Enter a word: elephant
+Good job! Next word must start with 't'.
+Enter a word: 
